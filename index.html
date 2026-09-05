@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Library Management System{% endblock %}
+
+{% block content %}
+<div class="hero fade-in">
+    <h1>Find Your Next Great Read</h1>
+    <p>Filter by your academic requirements to find relevant textbooks, workbooks, and soft copies instantly.</p>
+</div>
+
+<div class="card fade-in" style="max-width: 800px; margin: 0 auto;">
+    <h2 style="margin-bottom: 1.5rem; text-align: center;">Find Books by Curriculum</h2>
+    <form action="{{ url_for('books') }}" method="POST">
+        <div class="book-grid" style="grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+                <label for="regulation">Regulation</label>
+                <select name="regulation" id="regulation" class="form-control">
+                    <option value="">Any Regulation</option>
+                    <option value="R20">R20</option>
+                    <option value="R23">R23</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="branch">Branch</label>
+                <select name="branch" id="branch" class="form-control">
+                    <option value="">Any Branch</option>
+                    <option value="CSE">Computer Science (CSE)</option>
+                    <option value="ECE">Electronics (ECE)</option>
+                    <option value="MECH">Mechanical (MECH)</option>
+                    <option value="CIVIL">Civil Engineering</option>
+                    <option value="EEE">Electrical (EEE)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="year">Year</label>
+                <select name="year" id="year" class="form-control">
+                    <option value="">Any Year</option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="semester">Semester</label>
+                <select name="semester" id="semester" class="form-control">
+                    <option value="">Any Semester</option>
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                    <option value="3">Semester 3</option>
+                    <option value="4">Semester 4</option>
+                    <option value="5">Semester 5</option>
+                    <option value="6">Semester 6</option>
+                    <option value="7">Semester 7</option>
+                    <option value="8">Semester 8</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-group" style="margin-top: 1rem;">
+            <label for="search">Keywords (Optional)</label>
+            <input type="text" name="search" id="search" class="form-control" placeholder="Search by title or author...">
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <button type="submit" class="btn btn-primary" style="width: 200px; font-size: 1.1rem;">
+                Search Catalog <i class="fa-solid fa-arrow-right" style="margin-left: 0.5rem;"></i>
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
